@@ -17,14 +17,27 @@ export const kpis = [
   { label: "Faturamento do mês", value: "R$ 1,84 mi", delta: "+6,8%", tone: "ok" as Status },
 ];
 
-export const produtos = [
-  { sku: "PA-1001", nome: "Mesa industrial 1,60m", tipo: "Acabado", un: "UN", estoque: 42, minimo: 20, custo: 812.4 },
-  { sku: "PA-1002", nome: "Bancada dobrável", tipo: "Acabado", un: "UN", estoque: 11, minimo: 15, custo: 654.0 },
-  { sku: "SM-2010", nome: "Estrutura soldada", tipo: "Semiacabado", un: "UN", estoque: 68, minimo: 40, custo: 218.9 },
-  { sku: "MP-3001", nome: "Tubo aço 40x40", tipo: "Matéria-prima", un: "M", estoque: 1240, minimo: 800, custo: 24.7 },
-  { sku: "MP-3002", nome: "Chapa MDF 18mm", tipo: "Matéria-prima", un: "CH", estoque: 96, minimo: 150, custo: 132.5 },
-  { sku: "MP-3003", nome: "Tinta epóxi preta", tipo: "Matéria-prima", un: "L", estoque: 310, minimo: 200, custo: 41.2 },
-  { sku: "MP-3004", nome: "Parafuso M8 inox", tipo: "Matéria-prima", un: "PC", estoque: 8600, minimo: 10000, custo: 0.38 },
+export type Produto = {
+  sku: string;
+  nome: string;
+  descricao: string;
+  tipo: string;
+  un: string;
+  estoque: number;
+  minimo: number;
+  custo: number;
+  ean: string;
+  foto?: string;
+};
+
+export const produtos: Produto[] = [
+  { sku: "PA-1001", nome: "Mesa industrial 1,60m", descricao: "Mesa industrial 1,60 x 0,80 m, estrutura em tubo de aço 40x40 pintado epóxi preto, tampo MDF 18 mm laminado.", tipo: "Acabado", un: "UN", estoque: 42, minimo: 20, custo: 812.4, ean: gerarEan13({ sequencial: 1001 }), foto: fotoPa1001 },
+  { sku: "PA-1002", nome: "Bancada dobrável", descricao: "Bancada dobrável 1,50 m com pés retráteis em aço e tampo em madeira maciça, altura regulável.", tipo: "Acabado", un: "UN", estoque: 11, minimo: 15, custo: 654.0, ean: gerarEan13({ sequencial: 1002 }), foto: fotoPa1002 },
+  { sku: "SM-2010", nome: "Estrutura soldada", descricao: "Estrutura soldada para mesa industrial, tubo 40x40, com sapatas e furação de fixação.", tipo: "Semiacabado", un: "UN", estoque: 68, minimo: 40, custo: 218.9, ean: gerarEan13({ sequencial: 2010 }), foto: fotoSm2010 },
+  { sku: "MP-3001", nome: "Tubo aço 40x40", descricao: "Tubo de aço carbono seção quadrada 40x40 mm, parede 1,5 mm, barra de 6 m.", tipo: "Matéria-prima", un: "M", estoque: 1240, minimo: 800, custo: 24.7, ean: gerarEan13({ sequencial: 3001 }), foto: fotoMp3001 },
+  { sku: "MP-3002", nome: "Chapa MDF 18mm", descricao: "Chapa de MDF 18 mm, 2750 x 1840 mm, revestimento melamínico.", tipo: "Matéria-prima", un: "CH", estoque: 96, minimo: 150, custo: 132.5, ean: gerarEan13({ sequencial: 3002 }) },
+  { sku: "MP-3003", nome: "Tinta epóxi preta", descricao: "Tinta em pó epóxi-poliéster preto fosco para pintura eletrostática.", tipo: "Matéria-prima", un: "L", estoque: 310, minimo: 200, custo: 41.2, ean: gerarEan13({ sequencial: 3003 }) },
+  { sku: "MP-3004", nome: "Parafuso M8 inox", descricao: "Parafuso sextavado M8 x 25 mm em aço inox A2 com arruela.", tipo: "Matéria-prima", un: "PC", estoque: 8600, minimo: 10000, custo: 0.38, ean: gerarEan13({ sequencial: 3004 }) },
 ];
 
 export const estruturaProduto = {
