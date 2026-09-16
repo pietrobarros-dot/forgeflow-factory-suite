@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComprasRouteImport } from './routes/compras'
+import { Route as MrpRouteImport } from './routes/mrp'
+import { Route as ProducaoRouteImport } from './routes/producao'
+import { Route as ProdutosRouteImport } from './routes/produtos'
+import { Route as QualidadeRouteImport } from './routes/qualidade'
+import { Route as TmsRouteImport } from './routes/tms'
+import { Route as VendasRouteImport } from './routes/vendas'
+import { Route as WmsRouteImport } from './routes/wms'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComprasRoute = ComprasRouteImport.update({
+  id: '/compras',
+  path: '/compras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MrpRoute = MrpRouteImport.update({
+  id: '/mrp',
+  path: '/mrp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProducaoRoute = ProducaoRouteImport.update({
+  id: '/producao',
+  path: '/producao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdutosRoute = ProdutosRouteImport.update({
+  id: '/produtos',
+  path: '/produtos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QualidadeRoute = QualidadeRouteImport.update({
+  id: '/qualidade',
+  path: '/qualidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TmsRoute = TmsRouteImport.update({
+  id: '/tms',
+  path: '/tms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VendasRoute = VendasRouteImport.update({
+  id: '/vendas',
+  path: '/vendas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WmsRoute = WmsRouteImport.update({
+  id: '/wms',
+  path: '/wms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/compras': typeof ComprasRoute
+  '/mrp': typeof MrpRoute
+  '/producao': typeof ProducaoRoute
+  '/produtos': typeof ProdutosRoute
+  '/qualidade': typeof QualidadeRoute
+  '/tms': typeof TmsRoute
+  '/vendas': typeof VendasRoute
+  '/wms': typeof WmsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/compras': typeof ComprasRoute
+  '/mrp': typeof MrpRoute
+  '/producao': typeof ProducaoRoute
+  '/produtos': typeof ProdutosRoute
+  '/qualidade': typeof QualidadeRoute
+  '/tms': typeof TmsRoute
+  '/vendas': typeof VendasRoute
+  '/wms': typeof WmsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/compras': typeof ComprasRoute
+  '/mrp': typeof MrpRoute
+  '/producao': typeof ProducaoRoute
+  '/produtos': typeof ProdutosRoute
+  '/qualidade': typeof QualidadeRoute
+  '/tms': typeof TmsRoute
+  '/vendas': typeof VendasRoute
+  '/wms': typeof WmsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/compras'
+    | '/mrp'
+    | '/producao'
+    | '/produtos'
+    | '/qualidade'
+    | '/tms'
+    | '/vendas'
+    | '/wms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/compras'
+    | '/mrp'
+    | '/producao'
+    | '/produtos'
+    | '/qualidade'
+    | '/tms'
+    | '/vendas'
+    | '/wms'
+  id:
+    | '__root__'
+    | '/'
+    | '/compras'
+    | '/mrp'
+    | '/producao'
+    | '/produtos'
+    | '/qualidade'
+    | '/tms'
+    | '/vendas'
+    | '/wms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComprasRoute: typeof ComprasRoute
+  MrpRoute: typeof MrpRoute
+  ProducaoRoute: typeof ProducaoRoute
+  ProdutosRoute: typeof ProdutosRoute
+  QualidadeRoute: typeof QualidadeRoute
+  TmsRoute: typeof TmsRoute
+  VendasRoute: typeof VendasRoute
+  WmsRoute: typeof WmsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compras': {
+      id: '/compras'
+      path: '/compras'
+      fullPath: '/compras'
+      preLoaderRoute: typeof ComprasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mrp': {
+      id: '/mrp'
+      path: '/mrp'
+      fullPath: '/mrp'
+      preLoaderRoute: typeof MrpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/producao': {
+      id: '/producao'
+      path: '/producao'
+      fullPath: '/producao'
+      preLoaderRoute: typeof ProducaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produtos': {
+      id: '/produtos'
+      path: '/produtos'
+      fullPath: '/produtos'
+      preLoaderRoute: typeof ProdutosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qualidade': {
+      id: '/qualidade'
+      path: '/qualidade'
+      fullPath: '/qualidade'
+      preLoaderRoute: typeof QualidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tms': {
+      id: '/tms'
+      path: '/tms'
+      fullPath: '/tms'
+      preLoaderRoute: typeof TmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vendas': {
+      id: '/vendas'
+      path: '/vendas'
+      fullPath: '/vendas'
+      preLoaderRoute: typeof VendasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wms': {
+      id: '/wms'
+      path: '/wms'
+      fullPath: '/wms'
+      preLoaderRoute: typeof WmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComprasRoute: ComprasRoute,
+  MrpRoute: MrpRoute,
+  ProducaoRoute: ProducaoRoute,
+  ProdutosRoute: ProdutosRoute,
+  QualidadeRoute: QualidadeRoute,
+  TmsRoute: TmsRoute,
+  VendasRoute: VendasRoute,
+  WmsRoute: WmsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
