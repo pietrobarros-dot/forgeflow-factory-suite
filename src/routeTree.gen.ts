@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComprasRouteImport } from './routes/compras'
+import { Route as EtiquetasRouteImport } from './routes/etiquetas'
 import { Route as MrpRouteImport } from './routes/mrp'
 import { Route as ProducaoRouteImport } from './routes/producao'
 import { Route as ProdutosRouteImport } from './routes/produtos'
@@ -27,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const ComprasRoute = ComprasRouteImport.update({
   id: '/compras',
   path: '/compras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EtiquetasRoute = EtiquetasRouteImport.update({
+  id: '/etiquetas',
+  path: '/etiquetas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MrpRoute = MrpRouteImport.update({
@@ -68,6 +74,7 @@ const WmsRoute = WmsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/compras': typeof ComprasRoute
+  '/etiquetas': typeof EtiquetasRoute
   '/mrp': typeof MrpRoute
   '/producao': typeof ProducaoRoute
   '/produtos': typeof ProdutosRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/compras': typeof ComprasRoute
+  '/etiquetas': typeof EtiquetasRoute
   '/mrp': typeof MrpRoute
   '/producao': typeof ProducaoRoute
   '/produtos': typeof ProdutosRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/compras': typeof ComprasRoute
+  '/etiquetas': typeof EtiquetasRoute
   '/mrp': typeof MrpRoute
   '/producao': typeof ProducaoRoute
   '/produtos': typeof ProdutosRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/compras'
+    | '/etiquetas'
     | '/mrp'
     | '/producao'
     | '/produtos'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/compras'
+    | '/etiquetas'
     | '/mrp'
     | '/producao'
     | '/produtos'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/compras'
+    | '/etiquetas'
     | '/mrp'
     | '/producao'
     | '/produtos'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ComprasRoute: typeof ComprasRoute
+  EtiquetasRoute: typeof EtiquetasRoute
   MrpRoute: typeof MrpRoute
   ProducaoRoute: typeof ProducaoRoute
   ProdutosRoute: typeof ProdutosRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/compras'
       fullPath: '/compras'
       preLoaderRoute: typeof ComprasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/etiquetas': {
+      id: '/etiquetas'
+      path: '/etiquetas'
+      fullPath: '/etiquetas'
+      preLoaderRoute: typeof EtiquetasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mrp': {
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ComprasRoute: ComprasRoute,
+  EtiquetasRoute: EtiquetasRoute,
   MrpRoute: MrpRoute,
   ProducaoRoute: ProducaoRoute,
   ProdutosRoute: ProdutosRoute,
