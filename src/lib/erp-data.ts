@@ -1,4 +1,9 @@
 // Dados simulados (protótipo) — nenhum backend conectado.
+import { gerarEan13 } from "@/lib/barcode";
+import fotoPa1001 from "@/assets/pa-1001.jpg";
+import fotoPa1002 from "@/assets/pa-1002.jpg";
+import fotoSm2010 from "@/assets/sm-2010.jpg";
+import fotoMp3001 from "@/assets/mp-3001.jpg";
 
 export type Status =
   | "ok"
