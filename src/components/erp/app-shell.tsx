@@ -10,6 +10,7 @@ const nav = [
   { to: "/compras", label: "Compras / Suprimentos", sigla: "SRM" },
   { to: "/vendas", label: "Vendas / Pedidos", sigla: "CRM" },
   { to: "/produtos", label: "Produtos e estrutura", sigla: "PIM" },
+  { to: "/etiquetas", label: "Etiquetas e códigos", sigla: "ETQ" },
   { to: "/qualidade", label: "Qualidade e manutenção", sigla: "QMS" },
 ] as const;
 
