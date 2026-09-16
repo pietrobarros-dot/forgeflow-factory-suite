@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MrpRouteImport } from './routes/mrp'
+import { Route as ProducaoRouteImport } from './routes/producao'
+import { Route as TmsRouteImport } from './routes/tms'
+import { Route as WmsRouteImport } from './routes/wms'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MrpRoute = MrpRouteImport.update({
+  id: '/mrp',
+  path: '/mrp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProducaoRoute = ProducaoRouteImport.update({
+  id: '/producao',
+  path: '/producao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TmsRoute = TmsRouteImport.update({
+  id: '/tms',
+  path: '/tms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WmsRoute = WmsRouteImport.update({
+  id: '/wms',
+  path: '/wms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/mrp': typeof MrpRoute
+  '/producao': typeof ProducaoRoute
+  '/tms': typeof TmsRoute
+  '/wms': typeof WmsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/mrp': typeof MrpRoute
+  '/producao': typeof ProducaoRoute
+  '/tms': typeof TmsRoute
+  '/wms': typeof WmsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/mrp': typeof MrpRoute
+  '/producao': typeof ProducaoRoute
+  '/tms': typeof TmsRoute
+  '/wms': typeof WmsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/mrp' | '/producao' | '/tms' | '/wms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/mrp' | '/producao' | '/tms' | '/wms'
+  id: '__root__' | '/' | '/mrp' | '/producao' | '/tms' | '/wms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MrpRoute: typeof MrpRoute
+  ProducaoRoute: typeof ProducaoRoute
+  TmsRoute: typeof TmsRoute
+  WmsRoute: typeof WmsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mrp': {
+      id: '/mrp'
+      path: '/mrp'
+      fullPath: '/mrp'
+      preLoaderRoute: typeof MrpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/producao': {
+      id: '/producao'
+      path: '/producao'
+      fullPath: '/producao'
+      preLoaderRoute: typeof ProducaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tms': {
+      id: '/tms'
+      path: '/tms'
+      fullPath: '/tms'
+      preLoaderRoute: typeof TmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wms': {
+      id: '/wms'
+      path: '/wms'
+      fullPath: '/wms'
+      preLoaderRoute: typeof WmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MrpRoute: MrpRoute,
+  ProducaoRoute: ProducaoRoute,
+  TmsRoute: TmsRoute,
+  WmsRoute: WmsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
