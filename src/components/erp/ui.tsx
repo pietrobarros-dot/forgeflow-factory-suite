@@ -99,9 +99,8 @@ export function Metric({
   );
 }
 
-export function Bar({ value, tone = "primary" }: { value: number; tone?: string }) {
-  const color =
-    value >= 90 ? "bg-destructive" : value >= 75 ? "bg-warning" : `bg-${tone}`;
+export function Bar({ value }: { value: number }) {
+  const color = value >= 90 ? "bg-destructive" : value >= 75 ? "bg-warning" : "bg-primary";
   return (
     <div className="h-1.5 w-full bg-muted">
       <div className={`h-full ${color}`} style={{ width: `${Math.min(value, 100)}%` }} />
