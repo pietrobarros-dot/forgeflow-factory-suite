@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/erp/app-shell";
 import { brl, Cell, Metric, PageHeader, Panel, Row, Table } from "@/components/erp/ui";
-import { estruturaProduto, produtos } from "@/lib/erp-data";
+import { estruturaProduto } from "@/lib/erp-data";
+import { useProdutos } from "@/lib/produtos-store";
 
 export const Route = createFileRoute("/produtos")({
   head: () => ({
@@ -23,6 +24,7 @@ export const Route = createFileRoute("/produtos")({
 });
 
 function ProdutosPage() {
+  const produtos = useProdutos();
   const custoBom = estruturaProduto.itens.reduce((s, i) => {
     const item = produtos.find((p) => p.sku === i.sku);
     return s + (item ? item.custo * i.qtd : 0);

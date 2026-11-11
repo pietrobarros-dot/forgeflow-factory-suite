@@ -31,6 +31,7 @@ export type Produto = {
   estoque: number;
   minimo: number;
   custo: number;
+  preco?: number;
   ean: string;
   foto?: string;
 };

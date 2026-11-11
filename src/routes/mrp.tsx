@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/erp/app-shell";
 import { Cell, Metric, PageHeader, Panel, Row, StatusBadge, Table } from "@/components/erp/ui";
+import { CadastroProduto } from "@/components/erp/cadastro-produto";
 import { estruturaProduto, necessidades, ordens } from "@/lib/erp-data";
 
 export const Route = createFileRoute("/mrp")({
@@ -39,6 +40,8 @@ function MrpPage() {
         <Metric label="Sugestões de produção" value={String(produzir)} delta="Semiacabados" tone="atencao" />
         <Metric label="Cobertura média" value="11 dias" delta="Meta: 15 dias" tone="atencao" />
       </div>
+
+      <CadastroProduto />
 
       <Panel titulo="Necessidades calculadas">
         <Table
