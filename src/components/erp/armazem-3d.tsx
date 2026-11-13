@@ -4,7 +4,7 @@ import { COLUNAS, NIVEIS, RUAS, corOcupacao, type Posicao } from "@/lib/armazem"
 
 export default function Armazem3D({
   posicoes, selecionada, onSelect,
-}: { posicoes: Posicao[]; selecionada?: string; onSelect: (id: string) => void }) {
+}: { posicoes: Posicao[]; selecionada?: string | undefined; onSelect: (id: string) => void }) {
   return (
     <div className="h-[460px] w-full" data-scene-ready>
       <Canvas camera={{ position: [14, 12, 16], fov: 45 }}>

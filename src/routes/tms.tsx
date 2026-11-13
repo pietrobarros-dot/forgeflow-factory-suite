@@ -95,7 +95,7 @@ function TmsPage() {
     } finally { setCarregando(false); }
   }
 
-  const v = veiculos[vi], m = motoristas[mi];
+  const v = veiculos[vi]!, m = motoristas[mi]!;
   const calc: Calculo | undefined = rota && (() => {
     const combustivel = (rota.km / v.kmL) * diesel;
     const pedagio = (rota.km / 100) * PEDAGIO_EIXO_100KM * v.eixos;
@@ -144,7 +144,7 @@ function TmsPage() {
       {calc && (
         <Panel titulo={`Custo da viagem · ${calc.origem} → ${calc.destino}`}
           extra={<button onClick={() => setSalvas((s) => [calc, ...s])} className="border border-primary px-3 py-1 font-mono text-xs uppercase text-primary">Salvar viagem</button>}>
-          <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-6">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
             <Metric label="Distância" value={`${calc.km.toFixed(0)} km`} delta={`${Math.floor(calc.horas)}h${String(Math.round((calc.horas % 1) * 60)).padStart(2, "0")} de direção`} tone="ok" />
             <Metric label="Combustível" value={brl(calc.combustivel)} delta={`${(calc.km / v.kmL).toFixed(0)} L diesel`} tone="atencao" />
             <Metric label="Pedágios (estim.)" value={brl(calc.pedagio)} delta={`${v.eixos} eixos`} tone="atencao" />

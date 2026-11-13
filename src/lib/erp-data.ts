@@ -31,9 +31,9 @@ export type Produto = {
   estoque: number;
   minimo: number;
   custo: number;
-  preco?: number;
+  preco?: number | undefined;
   ean: string;
-  foto?: string;
+  foto?: string | undefined;
 };
 
 export const produtos: Produto[] = [

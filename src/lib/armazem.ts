@@ -3,7 +3,7 @@ import type { Produto } from "@/lib/erp-data";
 
 export type Posicao = {
   id: string; rua: string; coluna: number; nivel: number;
-  sku?: string; nome?: string; qtd: number; ocupacao: number;
+  sku?: string | undefined; nome?: string | undefined; qtd: number; ocupacao: number;
 };
 
 export const RUAS = ["A", "B", "C", "D"];
