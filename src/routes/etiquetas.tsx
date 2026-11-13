@@ -43,7 +43,7 @@ const botao =
   "border border-border px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-colors hover:bg-muted";
 
 function EtiquetasPage() {
-  const [skuBase, setSkuBase] = useState(produtos[0].sku);
+  const [skuBase, setSkuBase] = useState(produtos[0]!.sku);
   const [novoItem, setNovoItem] = useState(false);
 
   const [skuAuto, setSkuAuto] = useState(true);
@@ -56,7 +56,7 @@ function EtiquetasPage() {
   const [eanManual, setEanManual] = useState("");
 
   const [lote, setLote] = useState("LT-8830");
-  const [endereco, setEndereco] = useState(enderecos[0].rua + " · " + enderecos[0].posicao);
+  const [endereco, setEndereco] = useState(enderecos[0]!.rua + " · " + enderecos[0]!.posicao);
   const [copias, setCopias] = useState(4);
   const [emitidas, setEmitidas] = useState<Emitida[]>([]);
 

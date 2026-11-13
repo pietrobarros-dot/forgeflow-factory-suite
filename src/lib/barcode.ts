@@ -53,14 +53,14 @@ export function gerarEan13({
 /** Padrão de barras (string de 0/1) de um EAN-13 completo. */
 export function padraoBarrasEan13(codigo: string): string {
   const c = codigo.replace(/\D/g, "").padStart(13, "0").slice(0, 13);
-  const digitos = c.split("").map(Number);
-  const paridade = PARIDADE[digitos[0]];
+  const digitos = c.split("").map(Number) as number[];
+  const paridade = PARIDADE[digitos[0]!]!;
   let bits = "101";
   for (let i = 1; i <= 6; i++) {
-    bits += paridade[i - 1] === "L" ? L[digitos[i]] : G[digitos[i]];
+    bits += paridade[i - 1] === "L" ? L[digitos[i]!] : G[digitos[i]!];
   }
   bits += "01010";
-  for (let i = 7; i <= 12; i++) bits += R[digitos[i]];
+  for (let i = 7; i <= 12; i++) bits += R[digitos[i]!];
   bits += "101";
   return bits;
 }
