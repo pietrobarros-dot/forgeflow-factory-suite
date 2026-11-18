@@ -3,7 +3,7 @@ import { AppShell } from "@/components/erp/app-shell";
 import { Bar, Cell, Metric, PageHeader, Panel, Row, StatusBadge, Table } from "@/components/erp/ui";
 import { cargas, centrosTrabalho, kpis, necessidades, ordens } from "@/lib/erp-data";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/_authenticated/")({
   head: () => ({
     meta: [
       { title: "Painel de operação — ForjaERP" },

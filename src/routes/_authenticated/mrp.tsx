@@ -4,7 +4,7 @@ import { Cell, Metric, PageHeader, Panel, Row, StatusBadge, Table } from "@/comp
 import { CadastroProduto } from "@/components/erp/cadastro-produto";
 import { estruturaProduto, necessidades, ordens } from "@/lib/erp-data";
 
-export const Route = createFileRoute("/mrp")({
+export const Route = createFileRoute("/_authenticated/mrp")({
   head: () => ({
     meta: [
       { title: "MRP — Planejamento de materiais | ForjaERP" },

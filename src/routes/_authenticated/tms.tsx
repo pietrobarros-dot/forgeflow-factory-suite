@@ -5,7 +5,7 @@ import { AppShell } from "@/components/erp/app-shell";
 import { Bar, Cell, Metric, PageHeader, Panel, Row, StatusBadge, Table, brl } from "@/components/erp/ui";
 import { cargas, fretes } from "@/lib/erp-data";
 
-export const Route = createFileRoute("/tms")({
+export const Route = createFileRoute("/_authenticated/tms")({
   head: () => ({
     meta: [
       { title: "TMS — Transporte e roteirização | ForjaERP" },

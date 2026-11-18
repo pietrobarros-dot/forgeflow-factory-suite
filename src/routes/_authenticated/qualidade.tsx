@@ -3,7 +3,7 @@ import { AppShell } from "@/components/erp/app-shell";
 import { Cell, Metric, PageHeader, Panel, Row, StatusBadge, Table } from "@/components/erp/ui";
 import { manutencao, qualidade } from "@/lib/erp-data";
 
-export const Route = createFileRoute("/qualidade")({
+export const Route = createFileRoute("/_authenticated/qualidade")({
   head: () => ({
     meta: [
       { title: "Qualidade e manutenção de ativos | ForjaERP" },

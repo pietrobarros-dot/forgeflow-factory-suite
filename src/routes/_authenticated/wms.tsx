@@ -8,7 +8,7 @@ import { COLUNAS, NIVEIS, RUAS, corOcupacao, montarArmazem } from "@/lib/armazem
 
 const Armazem3D = lazy(() => import("@/components/erp/armazem-3d"));
 
-export const Route = createFileRoute("/wms")({
+export const Route = createFileRoute("/_authenticated/wms")({
   head: () => ({
     meta: [
       { title: "WMS — Gestão de armazém | ForjaERP" },

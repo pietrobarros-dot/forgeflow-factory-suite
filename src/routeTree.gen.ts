@@ -9,109 +9,134 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ComprasRouteImport } from './routes/compras'
-import { Route as EtiquetasRouteImport } from './routes/etiquetas'
-import { Route as MrpRouteImport } from './routes/mrp'
-import { Route as ProducaoRouteImport } from './routes/producao'
-import { Route as ProdutosRouteImport } from './routes/produtos'
-import { Route as QualidadeRouteImport } from './routes/qualidade'
-import { Route as TmsRouteImport } from './routes/tms'
-import { Route as VendasRouteImport } from './routes/vendas'
-import { Route as WmsRouteImport } from './routes/wms'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
+import { Route as AuthenticatedComprasRouteImport } from './routes/_authenticated/compras'
+import { Route as AuthenticatedEtiquetasRouteImport } from './routes/_authenticated/etiquetas'
+import { Route as AuthenticatedMrpRouteImport } from './routes/_authenticated/mrp'
+import { Route as AuthenticatedProducaoRouteImport } from './routes/_authenticated/producao'
+import { Route as AuthenticatedProdutosRouteImport } from './routes/_authenticated/produtos'
+import { Route as AuthenticatedQualidadeRouteImport } from './routes/_authenticated/qualidade'
+import { Route as AuthenticatedTmsRouteImport } from './routes/_authenticated/tms'
+import { Route as AuthenticatedUsuariosRouteImport } from './routes/_authenticated/usuarios'
+import { Route as AuthenticatedVendasRouteImport } from './routes/_authenticated/vendas'
+import { Route as AuthenticatedWmsRouteImport } from './routes/_authenticated/wms'
 
-const IndexRoute = IndexRouteImport.update({
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const ComprasRoute = ComprasRouteImport.update({
+const AuthenticatedComprasRoute = AuthenticatedComprasRouteImport.update({
   id: '/compras',
   path: '/compras',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const EtiquetasRoute = EtiquetasRouteImport.update({
+const AuthenticatedEtiquetasRoute = AuthenticatedEtiquetasRouteImport.update({
   id: '/etiquetas',
   path: '/etiquetas',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const MrpRoute = MrpRouteImport.update({
+const AuthenticatedMrpRoute = AuthenticatedMrpRouteImport.update({
   id: '/mrp',
   path: '/mrp',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const ProducaoRoute = ProducaoRouteImport.update({
+const AuthenticatedProducaoRoute = AuthenticatedProducaoRouteImport.update({
   id: '/producao',
   path: '/producao',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const ProdutosRoute = ProdutosRouteImport.update({
+const AuthenticatedProdutosRoute = AuthenticatedProdutosRouteImport.update({
   id: '/produtos',
   path: '/produtos',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const QualidadeRoute = QualidadeRouteImport.update({
+const AuthenticatedQualidadeRoute = AuthenticatedQualidadeRouteImport.update({
   id: '/qualidade',
   path: '/qualidade',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const TmsRoute = TmsRouteImport.update({
+const AuthenticatedTmsRoute = AuthenticatedTmsRouteImport.update({
   id: '/tms',
   path: '/tms',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const VendasRoute = VendasRouteImport.update({
+const AuthenticatedUsuariosRoute = AuthenticatedUsuariosRouteImport.update({
+  id: '/usuarios',
+  path: '/usuarios',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedVendasRoute = AuthenticatedVendasRouteImport.update({
   id: '/vendas',
   path: '/vendas',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const WmsRoute = WmsRouteImport.update({
+const AuthenticatedWmsRoute = AuthenticatedWmsRouteImport.update({
   id: '/wms',
   path: '/wms',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/compras': typeof ComprasRoute
-  '/etiquetas': typeof EtiquetasRoute
-  '/mrp': typeof MrpRoute
-  '/producao': typeof ProducaoRoute
-  '/produtos': typeof ProdutosRoute
-  '/qualidade': typeof QualidadeRoute
-  '/tms': typeof TmsRoute
-  '/vendas': typeof VendasRoute
-  '/wms': typeof WmsRoute
+  '/': typeof AuthenticatedIndexRoute
+  '/auth': typeof AuthRoute
+  '/compras': typeof AuthenticatedComprasRoute
+  '/etiquetas': typeof AuthenticatedEtiquetasRoute
+  '/mrp': typeof AuthenticatedMrpRoute
+  '/producao': typeof AuthenticatedProducaoRoute
+  '/produtos': typeof AuthenticatedProdutosRoute
+  '/qualidade': typeof AuthenticatedQualidadeRoute
+  '/tms': typeof AuthenticatedTmsRoute
+  '/usuarios': typeof AuthenticatedUsuariosRoute
+  '/vendas': typeof AuthenticatedVendasRoute
+  '/wms': typeof AuthenticatedWmsRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/compras': typeof ComprasRoute
-  '/etiquetas': typeof EtiquetasRoute
-  '/mrp': typeof MrpRoute
-  '/producao': typeof ProducaoRoute
-  '/produtos': typeof ProdutosRoute
-  '/qualidade': typeof QualidadeRoute
-  '/tms': typeof TmsRoute
-  '/vendas': typeof VendasRoute
-  '/wms': typeof WmsRoute
+  '/auth': typeof AuthRoute
+  '/compras': typeof AuthenticatedComprasRoute
+  '/etiquetas': typeof AuthenticatedEtiquetasRoute
+  '/mrp': typeof AuthenticatedMrpRoute
+  '/producao': typeof AuthenticatedProducaoRoute
+  '/produtos': typeof AuthenticatedProdutosRoute
+  '/qualidade': typeof AuthenticatedQualidadeRoute
+  '/tms': typeof AuthenticatedTmsRoute
+  '/usuarios': typeof AuthenticatedUsuariosRoute
+  '/vendas': typeof AuthenticatedVendasRoute
+  '/wms': typeof AuthenticatedWmsRoute
+  '/': typeof AuthenticatedIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/compras': typeof ComprasRoute
-  '/etiquetas': typeof EtiquetasRoute
-  '/mrp': typeof MrpRoute
-  '/producao': typeof ProducaoRoute
-  '/produtos': typeof ProdutosRoute
-  '/qualidade': typeof QualidadeRoute
-  '/tms': typeof TmsRoute
-  '/vendas': typeof VendasRoute
-  '/wms': typeof WmsRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/_authenticated/compras': typeof AuthenticatedComprasRoute
+  '/_authenticated/etiquetas': typeof AuthenticatedEtiquetasRoute
+  '/_authenticated/mrp': typeof AuthenticatedMrpRoute
+  '/_authenticated/producao': typeof AuthenticatedProducaoRoute
+  '/_authenticated/produtos': typeof AuthenticatedProdutosRoute
+  '/_authenticated/qualidade': typeof AuthenticatedQualidadeRoute
+  '/_authenticated/tms': typeof AuthenticatedTmsRoute
+  '/_authenticated/usuarios': typeof AuthenticatedUsuariosRoute
+  '/_authenticated/vendas': typeof AuthenticatedVendasRoute
+  '/_authenticated/wms': typeof AuthenticatedWmsRoute
+  '/_authenticated/': typeof AuthenticatedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
     | '/compras'
     | '/etiquetas'
     | '/mrp'
@@ -119,11 +144,12 @@ export interface FileRouteTypes {
     | '/produtos'
     | '/qualidade'
     | '/tms'
+    | '/usuarios'
     | '/vendas'
     | '/wms'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
+    | '/auth'
     | '/compras'
     | '/etiquetas'
     | '/mrp'
@@ -131,121 +157,162 @@ export interface FileRouteTypes {
     | '/produtos'
     | '/qualidade'
     | '/tms'
+    | '/usuarios'
     | '/vendas'
     | '/wms'
+    | '/'
   id:
     | '__root__'
-    | '/'
-    | '/compras'
-    | '/etiquetas'
-    | '/mrp'
-    | '/producao'
-    | '/produtos'
-    | '/qualidade'
-    | '/tms'
-    | '/vendas'
-    | '/wms'
+    | '/_authenticated'
+    | '/auth'
+    | '/_authenticated/compras'
+    | '/_authenticated/etiquetas'
+    | '/_authenticated/mrp'
+    | '/_authenticated/producao'
+    | '/_authenticated/produtos'
+    | '/_authenticated/qualidade'
+    | '/_authenticated/tms'
+    | '/_authenticated/usuarios'
+    | '/_authenticated/vendas'
+    | '/_authenticated/wms'
+    | '/_authenticated/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  ComprasRoute: typeof ComprasRoute
-  EtiquetasRoute: typeof EtiquetasRoute
-  MrpRoute: typeof MrpRoute
-  ProducaoRoute: typeof ProducaoRoute
-  ProdutosRoute: typeof ProdutosRoute
-  QualidadeRoute: typeof QualidadeRoute
-  TmsRoute: typeof TmsRoute
-  VendasRoute: typeof VendasRoute
-  WmsRoute: typeof WmsRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/': {
+      id: '/_authenticated/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/compras': {
-      id: '/compras'
+    '/_authenticated/compras': {
+      id: '/_authenticated/compras'
       path: '/compras'
       fullPath: '/compras'
-      preLoaderRoute: typeof ComprasRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedComprasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/etiquetas': {
-      id: '/etiquetas'
+    '/_authenticated/etiquetas': {
+      id: '/_authenticated/etiquetas'
       path: '/etiquetas'
       fullPath: '/etiquetas'
-      preLoaderRoute: typeof EtiquetasRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedEtiquetasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/mrp': {
-      id: '/mrp'
+    '/_authenticated/mrp': {
+      id: '/_authenticated/mrp'
       path: '/mrp'
       fullPath: '/mrp'
-      preLoaderRoute: typeof MrpRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedMrpRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/producao': {
-      id: '/producao'
+    '/_authenticated/producao': {
+      id: '/_authenticated/producao'
       path: '/producao'
       fullPath: '/producao'
-      preLoaderRoute: typeof ProducaoRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedProducaoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/produtos': {
-      id: '/produtos'
+    '/_authenticated/produtos': {
+      id: '/_authenticated/produtos'
       path: '/produtos'
       fullPath: '/produtos'
-      preLoaderRoute: typeof ProdutosRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedProdutosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/qualidade': {
-      id: '/qualidade'
+    '/_authenticated/qualidade': {
+      id: '/_authenticated/qualidade'
       path: '/qualidade'
       fullPath: '/qualidade'
-      preLoaderRoute: typeof QualidadeRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedQualidadeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/tms': {
-      id: '/tms'
+    '/_authenticated/tms': {
+      id: '/_authenticated/tms'
       path: '/tms'
       fullPath: '/tms'
-      preLoaderRoute: typeof TmsRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedTmsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/vendas': {
-      id: '/vendas'
+    '/_authenticated/usuarios': {
+      id: '/_authenticated/usuarios'
+      path: '/usuarios'
+      fullPath: '/usuarios'
+      preLoaderRoute: typeof AuthenticatedUsuariosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/vendas': {
+      id: '/_authenticated/vendas'
       path: '/vendas'
       fullPath: '/vendas'
-      preLoaderRoute: typeof VendasRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedVendasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/wms': {
-      id: '/wms'
+    '/_authenticated/wms': {
+      id: '/_authenticated/wms'
       path: '/wms'
       fullPath: '/wms'
-      preLoaderRoute: typeof WmsRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedWmsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedComprasRoute: typeof AuthenticatedComprasRoute
+  AuthenticatedEtiquetasRoute: typeof AuthenticatedEtiquetasRoute
+  AuthenticatedMrpRoute: typeof AuthenticatedMrpRoute
+  AuthenticatedProducaoRoute: typeof AuthenticatedProducaoRoute
+  AuthenticatedProdutosRoute: typeof AuthenticatedProdutosRoute
+  AuthenticatedQualidadeRoute: typeof AuthenticatedQualidadeRoute
+  AuthenticatedTmsRoute: typeof AuthenticatedTmsRoute
+  AuthenticatedUsuariosRoute: typeof AuthenticatedUsuariosRoute
+  AuthenticatedVendasRoute: typeof AuthenticatedVendasRoute
+  AuthenticatedWmsRoute: typeof AuthenticatedWmsRoute
+  AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedComprasRoute: AuthenticatedComprasRoute,
+  AuthenticatedEtiquetasRoute: AuthenticatedEtiquetasRoute,
+  AuthenticatedMrpRoute: AuthenticatedMrpRoute,
+  AuthenticatedProducaoRoute: AuthenticatedProducaoRoute,
+  AuthenticatedProdutosRoute: AuthenticatedProdutosRoute,
+  AuthenticatedQualidadeRoute: AuthenticatedQualidadeRoute,
+  AuthenticatedTmsRoute: AuthenticatedTmsRoute,
+  AuthenticatedUsuariosRoute: AuthenticatedUsuariosRoute,
+  AuthenticatedVendasRoute: AuthenticatedVendasRoute,
+  AuthenticatedWmsRoute: AuthenticatedWmsRoute,
+  AuthenticatedIndexRoute: AuthenticatedIndexRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  ComprasRoute: ComprasRoute,
-  EtiquetasRoute: EtiquetasRoute,
-  MrpRoute: MrpRoute,
-  ProducaoRoute: ProducaoRoute,
-  ProdutosRoute: ProdutosRoute,
-  QualidadeRoute: QualidadeRoute,
-  TmsRoute: TmsRoute,
-  VendasRoute: VendasRoute,
-  WmsRoute: WmsRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

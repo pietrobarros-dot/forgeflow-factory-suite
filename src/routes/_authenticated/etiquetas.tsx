@@ -6,7 +6,7 @@ import { Cell, Metric, PageHeader, Panel, Row, StatusBadge, Table } from "@/comp
 import { ean13Valido, gerarEan13, gerarSku, montarEan13 } from "@/lib/barcode";
 import { enderecos, produtos } from "@/lib/erp-data";
 
-export const Route = createFileRoute("/etiquetas")({
+export const Route = createFileRoute("/_authenticated/etiquetas")({
   head: () => ({
     meta: [
       { title: "Etiquetas de estoque — SKU e EAN-13 | ForjaERP" },

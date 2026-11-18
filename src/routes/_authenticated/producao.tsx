@@ -3,7 +3,7 @@ import { AppShell } from "@/components/erp/app-shell";
 import { Bar, Cell, Metric, PageHeader, Panel, Row, StatusBadge, Table } from "@/components/erp/ui";
 import { centrosTrabalho, ordens } from "@/lib/erp-data";
 
-export const Route = createFileRoute("/producao")({
+export const Route = createFileRoute("/_authenticated/producao")({
   head: () => ({
     meta: [
       { title: "Produção — Ordens e chão de fábrica | ForjaERP" },

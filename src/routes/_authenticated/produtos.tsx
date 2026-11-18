@@ -4,7 +4,7 @@ import { brl, Cell, Metric, PageHeader, Panel, Row, Table } from "@/components/e
 import { estruturaProduto } from "@/lib/erp-data";
 import { useProdutos } from "@/lib/produtos-store";
 
-export const Route = createFileRoute("/produtos")({
+export const Route = createFileRoute("/_authenticated/produtos")({
   head: () => ({
     meta: [
       { title: "Produtos e estrutura (BOM) | ForjaERP" },

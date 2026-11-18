@@ -3,7 +3,7 @@ import { AppShell } from "@/components/erp/app-shell";
 import { brl, Cell, Metric, PageHeader, Panel, Row, StatusBadge, Table } from "@/components/erp/ui";
 import { pedidos } from "@/lib/erp-data";
 
-export const Route = createFileRoute("/vendas")({
+export const Route = createFileRoute("/_authenticated/vendas")({
   head: () => ({
     meta: [
       { title: "Vendas e carteira de pedidos | ForjaERP" },
