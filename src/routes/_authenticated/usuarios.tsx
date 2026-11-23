@@ -57,14 +57,14 @@ function UsuariosPage() {
 
   async function adicionar(userId: string, role: Papel) {
     const { error } = await supabase.from("user_roles").insert({ user_id: userId, role });
-    if (error) return toast.error("Não foi possível atribuir o perfil.");
+    if (error) { toast.error("Não foi possível atribuir o perfil."); return; }
     toast.success(`Perfil ${nomePapel[role]} atribuído.`);
     qc.invalidateQueries({ queryKey: ["usuarios"] });
     qc.invalidateQueries({ queryKey: ["atividades"] });
   }
   async function remover(userId: string, role: Papel) {
     const { error } = await supabase.from("user_roles").delete().eq("user_id", userId).eq("role", role);
-    if (error) return toast.error("Não foi possível remover o perfil.");
+    if (error) { toast.error("Não foi possível remover o perfil."); return; }
     toast.success(`Perfil ${nomePapel[role]} removido.`);
     qc.invalidateQueries({ queryKey: ["usuarios"] });
     qc.invalidateQueries({ queryKey: ["atividades"] });
